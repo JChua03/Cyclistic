@@ -1,7 +1,7 @@
 # Cyclistic
 Case study from Google Analytic.
 
-## Scenario
+# Scenario
 
 I am a junior data analyst in a marketing analyst team at Cyclistic, a bike-share company in Chicago. 
 Director of Marketing, Lily Moreno believes that company's future success depends on maximizing the number of annual memberships.
@@ -14,10 +14,10 @@ Until now, Cyclistic marketing strategy relied on building general awareness and
 
 Financial analyst in Cyclistic has concluded that annual members are much more profitable than casual riders. Therefore, it is believe that the key to future growth was to maximize the number of annual members. It is also believe that it will be more beneficial to create a marketing campaign that targets casual members to become Cyclistic members. 
 
-### Ask
+# Ask
 Business Task: To launch a marketing campaign targeted to casual riders by identifying how casual and member riders uses Cyclistic differently.
 
-### Prepare
+# Prepare
 Data source: [Data for Cyclistic](https://divvy-tripdata.s3.amazonaws.com/index.html)
 
 Data license: [License for Cyclistic](https://www.divvybikes.com/data-license-agreement)
@@ -49,7 +49,7 @@ It is also **Comprehensive** and **Current** as it only contains the data we nee
 We will be able to use this data collected to find the difference between casual and members. 
 
 
-### Process
+# Process
 The tools that I am using to process the dataset are Microsoft SQL and Excel.
 
 Firstly, I am using the data from *July 2020 to June 2021* which is a 12 month period to study the difference of how casual and members uses Cyclistic.
@@ -334,10 +334,10 @@ where datediff(minute,started_at, ended_at) > 1440
 	datediff(minute,started_at, ended_at) <0
 ```
 
-### Analyze
+# Analyze
 I begin my analysis by analyzing the most obvious to more specific details.
 
-I started with the **Number of Rides** from July 2020 to June 2021.
+I started with the **number of rides** from July 2020 to June 2021.
 
 ```sql
 --- Total rides from July 2020 to June 2021. 4,016,917 rides.
@@ -418,7 +418,7 @@ group by end_station_name,
 order by count(end_station_name) DESC
 ```
 
-### Share
+# Share
 Please refer to my [Tableau] for the visualization.
 
 
