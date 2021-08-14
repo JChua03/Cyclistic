@@ -22,9 +22,7 @@ Data source: [Data for Cyclistic](https://divvy-tripdata.s3.amazonaws.com/index.
 
 Data license: [License for Cyclistic](https://www.divvybikes.com/data-license-agreement)
 
-Data is organized monthly. 
-
-Inside the data, it is broken down into multiple columns which are:
+The data is organized monthly and broken down into multiple columns which are:
 
 |Column 		| Explaination						|
 | --------------------- |-------------------------------------------------------|
@@ -52,11 +50,11 @@ We will be able to use this data collected to find the difference between casual
 
 
 ### Process
-The tools that I am using to process the data are Microsoft SQL and Excel.
+The tools that I am using to process the dataset are Microsoft SQL and Excel.
 
 Firstly, I am using the data from *July 2020 to June 2021* which is a 12 month period to study the difference of how casual and members uses Cyclistic.
 
-I download and **Extract** the .zip file while using the appropriate file-naming convention.
+I download and **Extract** the .zip file while using the appropriate **file-naming convention**.
 
 While loading the data into Microsoft SQL the data type for every month is selected as follows.
 
@@ -276,7 +274,7 @@ select
 
 While looking through the data, I noticed that:
   1. There are `NULL` in the dataset.
-  2. Some of the start station and end station consist of data where the bikes are sent to maintenance/testing. This needs to be removed.
+  2. Some of the `start_station` and `end_station` consists of data where the bikes are sent to maintenance or testing which needs to be removed.
 
 
 ```sql
@@ -307,7 +305,7 @@ where start_station_id like '%test%'
 	OR end_station_name like '%test%'
 ```
 
-I also added a constraint to check that there are no duplicates on ride_id, started_at and ended_at.
+I also added a constraint to check that there are no duplicates on `ride_id`, `started_at` and `ended_at`.
 This constraints ensure that there are no single ride ID which started and ended on the exact same time.
 
 ```sql
@@ -322,9 +320,9 @@ select datediff(minute,started_at, ended_at) as ride_length_min, *
 from [dbo].[cyclistic_v1]
 ```
 
-Upon checking the query, I notice that some of the ride length are negative values. This does not make sense as it suggest that the ride ended earlier than it started. 
+Upon checking the query, I noticed that some of the `ride_length_min` are negative values. This does not make sense as it suggests that the ride ended earlier than it started. 
 
-I also noticed that some rides took more than 24 hours. I removed this as [this link](https://help.divvybikes.com/hc/en-us/articles/360033484791-What-if-I-keep-a-bike-out-too-long-) shows that no bike rental should be exceed 24 hours (1440 minutes).
+I also noticed that some rides took more than 24 hours. I removed them as [this link](https://help.divvybikes.com/hc/en-us/articles/360033484791-What-if-I-keep-a-bike-out-too-long-) suggest that bike rental longer than 24 hours (1440 minutes) are considered lost.
 
 ```sql
 --- Delete negative value ride_length and ride_length that exceed 24 hours. 5107 rows affected.
@@ -337,10 +335,9 @@ where datediff(minute,started_at, ended_at) > 1440
 ```
 
 ### Analyze
+I begin my analysis by analyzing the most obvious to more specific details.
 
-I analyze my data based on the most general to more specific details.
-
-I started with finding the **Number of Rides** from July 2020 to June 2021.
+I started with the **Number of Rides** from July 2020 to June 2021.
 
 ```sql
 --- Total rides from July 2020 to June 2021. 4,016,917 rides.
@@ -349,7 +346,7 @@ select count(*) as total_rides
 from [dbo].[cyclistic_v1]
 ```
 
-Does the type of bikes affect how Cyclistic user uses the bikes?
+Does the **type of bikes** affect how Cyclistic user uses the bikes?
 
 ``` 
 select rideable_type,
@@ -360,7 +357,7 @@ group by rideable_type,
 		member_casual
 ```
 
-I was curious as to how does time, day and month affect the user type. Therefore, I ran the below query.
+I was curious as to how does **time, day and month** affect the user type. Therefore, I ran the below query.
 
 ```sql
 
@@ -397,7 +394,7 @@ order by datepart(hour,started_at),
 		datepart(weekday,started_at)
 ```
 
-Does user have a preference of where the bikes are located?
+Does user have a preference of where the bikes are **located**?
 
 ```
 --- Start station preference
@@ -421,6 +418,8 @@ group by end_station_name,
 order by count(end_station_name) DESC
 ```
 
+### Share
+Please refer to my [Tableau] for the visualization.
 
 
 
