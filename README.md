@@ -425,8 +425,11 @@ Please refer to [Tableau] for the visualization.
 
 # Act
 **1. Marketing campaign launch on the busiest month of the year from June to August.**
+
 **2. Increase price for single-ride and single-day passes on weekends to promote membership subscription.**
+
 **3. Advertisement place around the coast to promote annual membership benefits.**
+
 **4. Increase the number of bike station furthe away from the coast to promote Cyclistic as the main type of transport.**
 
 
