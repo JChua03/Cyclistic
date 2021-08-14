@@ -25,32 +25,21 @@ Data is organized monthly.
 
 Inside the data, it is broken down into multiple columns which are:
 
-ride_id **The ID for each ride**
-
-rideable_type **The type of bike used**
-
-started_at **The date and time where the ride started**
-
-ended_at **The date and time where the ride ended**
-
-start_station_name **Station name where the ride started**
-
-start_station_id **Station ID where the ride started**
-
-end_station_name **Station name where the ride ended**
-
-end_station_id **Station ID where the ride ended**
-
-start_lat **The latitude of the station where the ride started**
-
-start_lng **The longitude of the station where the ride started**
-
-end_lat **The latitude of the station where the ride ended**
-
-end_lng **The longitude of the station where the ride ended**
-
-member_casual **The membership type of the riders**
-
+```
+ride_id The ID for each ride
+rideable_type The type of bike used
+started_at The date and time where the ride started
+ended_at The date and time where the ride ended
+start_station_name Station name where the ride started
+start_station_id Station ID where the ride started
+end_station_name Station name where the ride ended
+end_station_id Station ID where the ride ended
+start_lat The latitude of the station where the ride started
+start_lng The longitude of the station where the ride started
+end_lat The latitude of the station where the ride ended
+end_lng The longitude of the station where the ride ended
+member_casual The membership type of the riders
+```
 
 The data is **Reliable** and **Original** as it is collected by Cyclistc.
 It is also **Comprehensive** and **Current** as it only contains the data we need within the time frame we are interested in, which is a *12 month period*.
@@ -68,6 +57,7 @@ I download and **Extract** the .zip file while using the appropriate file-naming
 
 While loading the data into Microsoft SQL the data type for every month is selected as follows.
 
+```
 ride_id nvarchar(50) null,
 rideable_type nvarchar(50) null,
 started_at datetime2(7) null,
@@ -81,6 +71,7 @@ start_lng float null,
 end_lat float null,
 end_lng float null,
 member_casual nvarchar(50) null
+```
 
 Then, I merge all the data from the past 12 months into a single table with 4,460,151 rows.
 
