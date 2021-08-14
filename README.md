@@ -26,7 +26,7 @@ Data is organized monthly.
 Inside the data, it is broken down into multiple columns which are:
 
 |Column 		| Explaination						|
-| --------------------- |: ----------------------------------------------------:|
+| --------------------- |-------------------------------------------------------|
 |ride_id 		| The ID for each ride 					|
 |rideable_type		| The type of bike used 				|
 |started_at 		| The date and time where the ride started 		|
