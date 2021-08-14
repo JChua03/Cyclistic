@@ -310,12 +310,29 @@ where start_station_id like '%test%'
 I also added a constraint to check that there are no duplicates on ride_id, started_at and ended_at.
 This constraints ensure that there are no single ride ID which started and ended on the exact same time.
 
-```
+```sql
 alter table [dbo].[cyclistic_v1]
 add constraint UC_ridejourney Unique (started_at, ended_at, ride_id)
 ```
 
-Then, I would want to know how does each ride took.
+Then, I would want to know how does each ride took in minutes.
+
+```sql 
+select datediff(minute,started_at, ended_at) as ride_length_min, *
+from [dbo].[cyclistic_v1]
+```
+
+Upon checking the query, I notice that some of the ride length are negative values. This does not make sense as it suggest that the ride ended earlier than it started. 
+
+I also noticed that some rides took more than 24 hours. I removed this as [this link](https://help.divvybikes.com/hc/en-us/articles/360033484791-What-if-I-keep-a-bike-out-too-long-) shows that no bike rental should be exceed 24 hours (1440 minutes).
+
+```sql
+delete
+from [dbo].[cyclistic_v1]
+where datediff(minute,started_at, ended_at) > 1440
+	OR 
+	datediff(minute,started_at, ended_at) <0
+```
 
 
 
