@@ -18,28 +18,29 @@ Financial analyst in Cyclistic has concluded that annual members are much more p
 Business Task: To launch a marketing campaign targeted to casual riders by identifying how casual and member riders uses Cyclistic differently.
 
 ### Prepare
-Data source: [Data for Cyclistic] (https://divvy-tripdata.s3.amazonaws.com/index.html)
-Data license: [License for Cyclistic] (https://www.divvybikes.com/data-license-agreement)
+Data source: [Data for Cyclistic](https://divvy-tripdata.s3.amazonaws.com/index.html)
+Data license: [License for Cyclistic](https://www.divvybikes.com/data-license-agreement)
 
 Data is organized monthly. 
 
 Inside the data, it is broken down into multiple columns which are:
 
-```
-ride_id The ID for each ride
-rideable_type The type of bike used
-started_at The date and time where the ride started
-ended_at The date and time where the ride ended
-start_station_name Station name where the ride started
-start_station_id Station ID where the ride started
-end_station_name Station name where the ride ended
-end_station_id Station ID where the ride ended
-start_lat The latitude of the station where the ride started
-start_lng The longitude of the station where the ride started
-end_lat The latitude of the station where the ride ended
-end_lng The longitude of the station where the ride ended
-member_casual The membership type of the riders
-```
+|Column 		| Explaination						|
+| --------------------- |: ----------------------------------------------------:|
+|ride_id 		| The ID for each ride 					|
+|rideable_type		| The type of bike used 				|
+|started_at 		| The date and time where the ride started 		|
+|ended_at 		| The date and time where the ride ended 		|
+|start_station_name 	| Station name where the ride started 			|
+|start_station_id 	| Station ID where the ride started 			|
+|end_station_name 	| Station name where the ride ended 			|
+|end_station_id 	| Station ID where the ride ended 			|
+|start_lat 		| The latitude of the station where the ride started 	|
+|start_lng 		| The longitude of the station where the ride started 	|
+|end_lat 		| The latitude of the station where the ride ended 	|
+|end_lng 		| The longitude of the station where the ride ended 	|
+|member_casual 		| The membership type of the riders 			|
+
 
 The data is **Reliable** and **Original** as it is collected by Cyclistc.
 It is also **Comprehensive** and **Current** as it only contains the data we need within the time frame we are interested in, which is a *12 month period*.
