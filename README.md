@@ -14,7 +14,7 @@ Until now, Cyclistic marketing strategy relied on building general awareness and
 
 Financial analyst in Cyclistic has concluded that annual members are much more profitable than casual riders. Therefore, it is believe that the key to future growth was to maximize the number of annual members. It is also believe that it will be more beneficial to create a marketing campaign that targets casual members to become Cyclistic members. 
 
-######### For this case study, I will be using the Google Data Analytics Certificate processes to provide recommendation to the Director of Marketing.
+*For this case study, I will be using the Google Data Analytics Certificate processes to provide recommendation to the Director of Marketing.*
 
 # Ask
 Business Task: To launch a marketing campaign targeted to casual riders by identifying how casual and member riders uses Cyclistic differently.
@@ -424,8 +424,10 @@ order by count(end_station_name) DESC
 Please refer to [Tableau] for the visualization.
 
 # Act
-
-
+**1. Marketing campaign launch on the busiest month of the year from June to August.**
+**2. Increase price for single-ride and single-day passes on weekends to promote membership subscription.**
+**3. Advertisement place around the coast to promote annual membership benefits.**
+**4. Increase the number of bike station furthe away from the coast to promote Cyclistic as the main type of transport.**
 
 
 
