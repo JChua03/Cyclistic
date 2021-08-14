@@ -421,7 +421,7 @@ order by count(end_station_name) DESC
 ```
 
 # Share
-Please refer to [Tableau] for the visualization.
+Please refer to [Tableau](https://public.tableau.com/shared/8YW667SY7?:display_count=n&:origin=viz_share_link) for the visualization.
 
 # Act
 **1. Marketing campaign launch on the busiest month of the year from June to August.**
