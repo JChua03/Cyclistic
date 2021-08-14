@@ -1,5 +1,5 @@
 # Cyclistic
-Case study from Google Analytic
+Case study from Google Analytic.
 
 ## Scenario
 
