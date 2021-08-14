@@ -4,7 +4,7 @@ Case study from Google Analytic
 ## Scenario
 
 I am a junior data analyst in a marketing analyst team at Cyclistic, a bike-share company in Chicago. 
-Director of marketing believes that company's future success depends on maximizing the number of annual memberships.
+Director of Marketing believes that company's future success depends on maximizing the number of annual memberships.
 
 ## About Cyclistic
 
