@@ -19,6 +19,7 @@ Business Task: To launch a marketing campaign targeted to casual riders by ident
 
 ### Prepare
 Data source: [Data for Cyclistic](https://divvy-tripdata.s3.amazonaws.com/index.html)
+
 Data license: [License for Cyclistic](https://www.divvybikes.com/data-license-agreement)
 
 Data is organized monthly. 
@@ -59,7 +60,7 @@ I download and **Extract** the .zip file while using the appropriate file-naming
 
 While loading the data into Microsoft SQL the data type for every month is selected as follows.
 
-```
+``` sql
 ride_id nvarchar(50) null,
 rideable_type nvarchar(50) null,
 started_at datetime2(7) null,
@@ -75,9 +76,10 @@ end_lng float null,
 member_casual nvarchar(50) null
 ```
 
-Then, I merge all the data from the past 12 months into a single table with 4,460,151 rows.
+Then, I merge all the data from the past 12 months into a single table.
 
-``` 
+``` sql
+--- This creates cyclistic_v1 with 4,460,151 rows.
 insert into cyclistic_v1
 select 
   ride_id,
@@ -277,7 +279,7 @@ While looking through the data, I noticed that:
   2. Some of the start station and end station consist of data where the bikes are sent to maintenance/testing. This needs to be removed.
 
 
-```
+```sql
 --- Delete from the table where rows contain NULL as it is incomplete. 434382 rows affected.
 
 from [dbo].[cyclistic_v1]
