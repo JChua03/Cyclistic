@@ -2,10 +2,12 @@
 Case study from Google Analytic
 
 **Scenario**
+
 I am a junior data analyst in a marketing analyst team at Cyclistic, a bike-share company in Chicago. 
 Director of marketing believes that company's future success depends on maximizing the number of annual memberships.
 
 **About Cyclistic**
+
 Cyclistic launched in 2016 and grown to a fleet of 5,824 bicycles that are geotracked and locked into a network of 692 stations across Chicago.
 
 Until now, Cyclistic marketing strategy relied on building general awareness and appealing to broad consumer segments. There are different pricing plans which offers flexibility to the users. Pricing plans are as : single-ride passes, full-day passes, and annual memberships. Casual riders are customer who purchase single-ride and full-day passes whereas Cyclistic members are those who purchased annual memberships.
