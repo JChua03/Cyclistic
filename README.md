@@ -43,6 +43,7 @@ Inside the data, it is broken down into multiple columns which are:
 
 
 The data is **Reliable** and **Original** as it is collected by Cyclistc.
+
 It is also **Comprehensive** and **Current** as it only contains the data we need within the time frame we are interested in, which is a *12 month period*.
 
 
