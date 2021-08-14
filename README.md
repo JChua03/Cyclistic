@@ -327,6 +327,8 @@ Upon checking the query, I notice that some of the ride length are negative valu
 I also noticed that some rides took more than 24 hours. I removed this as [this link](https://help.divvybikes.com/hc/en-us/articles/360033484791-What-if-I-keep-a-bike-out-too-long-) shows that no bike rental should be exceed 24 hours (1440 minutes).
 
 ```sql
+--- Delete negative value ride_length and ride_length that exceed 24 hours. 5107 rows affected.
+
 delete
 from [dbo].[cyclistic_v1]
 where datediff(minute,started_at, ended_at) > 1440
@@ -334,6 +336,90 @@ where datediff(minute,started_at, ended_at) > 1440
 	datediff(minute,started_at, ended_at) <0
 ```
 
+### Analyze
+
+I analyze my data based on the most general to more specific details.
+
+I started with finding the **Number of Rides** from July 2020 to June 2021.
+
+```sql
+--- Total rides from July 2020 to June 2021. 4,016,917 rides.
+
+select count(*) as total_rides
+from [dbo].[cyclistic_v1]
+```
+
+Does the type of bikes affect how Cyclistic user uses the bikes?
+
+``` 
+select rideable_type,
+		count(*) as num_rides_by_type,
+		member_casual
+from [dbo].[cyclistic_v1]
+group by rideable_type,
+		member_casual
+```
+
+I was curious as to how does time, day and month affect the user type. Therefore, I ran the below query.
+
+```sql
+
+select member_casual,
+		--- time
+		datepart(hour,started_at) as hour_start,
+		--- daylight
+		(case when datepart(hour,started_at) in (0,1,2,3,4,5,6,7,8,9,10,11) then 'morning'
+			when datepart(hour,started_at) in (12,13,14,15,16,17) then 'afternoon'
+			when datepart(hour,started_at) in (18,19,20,21,22,23) then 'evening'
+		end) as daylight,
+		--- day 
+		datepart(day,started_at) as day_start,
+		--- weekday
+		datepart(weekday,started_at) as weekday_start,
+		--- month
+		datepart(month,started_at) as month_start,
+		--- season
+		(case when datepart(month,started_at) in (12,1,2) then 'winter'
+			when datepart(month,started_at) in (3,4,5) then 'spring'
+			when datepart(month,started_at) in (6,7,8) then 'summer'
+			when datepart(month,started_at) in (9,10,11) then 'autumn'
+		end) as season, 
+		count(*) as num_rides
+from [dbo].[cyclistic_v1]
+group by datepart(hour,started_at),
+		datepart(day,started_at),
+		datepart(month,started_at),
+		datepart(weekday,started_at),
+		member_casual
+order by datepart(hour,started_at),
+		datepart(day,started_at),
+		datepart(month,started_at),
+		datepart(weekday,started_at)
+```
+
+Does user have a preference of where the bikes are located?
+
+```
+--- Start station preference
+
+select count(start_station_name) as most_frequent_start_station_name, 
+		start_station_name, 
+		member_casual
+from [dbo].[cyclistic_v1]
+group by start_station_name,
+		member_casual
+order by count(start_station_name) DESC
+
+--- End station preference
+
+select count(end_station_name) as most_frequent_end_station_name,
+		end_station_name, 
+		member_casual
+from [dbo].[cyclistic_v1]
+group by end_station_name, 
+		member_casual
+order by count(end_station_name) DESC
+```
 
 
 
